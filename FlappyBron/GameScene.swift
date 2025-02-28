@@ -2,87 +2,74 @@
 //  GameScene.swift
 //  FlappyBron
 //
-//  Created by RYAN SPENCER on 2/24/25.
-//
 
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var userSprite : SKSpriteNode!
+    var wall1: SKSpriteNode!
+    var wall2: SKSpriteNode!
+    var wall3: SKSpriteNode!
+    var wall4: SKSpriteNode!
+    var wall5: SKSpriteNode!
+    var wall6: SKSpriteNode!
+    let cam = SKCameraNode()
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+    public var vc : UIViewController!
+    public var gameStarted = false
+    public var gameOver = false
     
     override func didMove(to view: SKView) {
-        
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
-        
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
+        physicsWorld.contactDelegate = self
+        userSprite = self.childNode(withName: "user") as! SKSpriteNode
+        wall1 = self.childNode(withName: "wall1") as! SKSpriteNode
+        wall2 = self.childNode(withName: "wall2") as! SKSpriteNode
+        wall3 = self.childNode(withName: "wall3") as! SKSpriteNode
+        wall4 = self.childNode(withName: "wall4") as! SKSpriteNode
+        wall5 = self.childNode(withName: "wall5") as! SKSpriteNode
+        wall6 = self.childNode(withName: "wall6") as! SKSpriteNode
+        userSprite.texture = SKTexture(image: UIImage.bronSprite)
+        self.camera = cam
     }
     
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
+    func didBegin(_ contact: SKPhysicsContact) {
+        userSprite.physicsBody?.velocity.dx = 0
+        userSprite.physicsBody?.velocity.dy = 0
+        wall1.physicsBody?.pinned = true
+        wall2.physicsBody?.pinned = true
+        wall3.physicsBody?.pinned = true
+        wall4.physicsBody?.pinned = true
+        wall5.physicsBody?.pinned = true
+        wall6.physicsBody?.pinned = true
+        gameOver = true
     }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
-        
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        
+        //edit wall positioning
+        if wall1.position.x <= -700 && wall2.position.x <= -700{
+            wall1.position.x = 700
+            wall2.position.x = 700
+            wall1.physicsBody?.velocity.dx = -500
+            wall2.physicsBody?.velocity.dx = -500
+        }
+        if wall3.position.x <= -700 && wall4.position.x <= -700{
+            wall3.position.x = 700
+            wall4.position.x = 700
+            wall3.physicsBody?.velocity.dx = -500
+            wall4.physicsBody?.velocity.dx = -500
+        }
+        if wall5.position.x <= -700 && wall6.position.x <= -700{
+            wall5.position.x = 700
+            wall6.position.x = 700
+            wall5.physicsBody?.velocity.dx = -500
+            wall6.physicsBody?.velocity.dx = -500
+        }
+        
     }
+    
 }
