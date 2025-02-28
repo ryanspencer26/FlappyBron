@@ -24,11 +24,7 @@ class GameViewController: UIViewController {
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
+        return .landscapeLeft
     }
     
     @IBAction func tapRecognized(_ sender: Any) {
@@ -36,7 +32,7 @@ class GameViewController: UIViewController {
         if titleLabel.isHidden && !play.gameStarted {
             play.gameStarted = true
             play.userSprite.physicsBody?.affectedByGravity = true
-            startLabel.isHidden = true
+            startLabel.text = "Score: \(play.score)"
             play.wall1.physicsBody?.velocity.dx = -500
             play.wall2.physicsBody?.velocity.dx = -500
             play.wall3.physicsBody?.velocity.dx = -500
@@ -44,10 +40,8 @@ class GameViewController: UIViewController {
             play.wall5.physicsBody?.velocity.dx = -500
             play.wall6.physicsBody?.velocity.dx = -500
         }
-        
-        if !play.gameOver {
-            play.userSprite.physicsBody?.velocity.dy = 555
-        }
+    
+        play.userSprite.physicsBody?.velocity.dy = 550
         
     }
     

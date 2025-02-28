@@ -21,6 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     public var vc : UIViewController!
     public var gameStarted = false
     public var gameOver = false
+    public var score = 0
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
@@ -36,8 +37,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        userSprite.physicsBody?.velocity.dx = 0
-        userSprite.physicsBody?.velocity.dy = 0
+        userSprite.physicsBody?.pinned = true
         wall1.physicsBody?.pinned = true
         wall2.physicsBody?.pinned = true
         wall3.physicsBody?.pinned = true
@@ -50,24 +50,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
-        //edit wall positioning
-        if wall1.position.x <= -700 && wall2.position.x <= -700{
-            wall1.position.x = 700
-            wall2.position.x = 700
+        if gameStarted {
             wall1.physicsBody?.velocity.dx = -500
             wall2.physicsBody?.velocity.dx = -500
-        }
-        if wall3.position.x <= -700 && wall4.position.x <= -700{
-            wall3.position.x = 700
-            wall4.position.x = 700
             wall3.physicsBody?.velocity.dx = -500
             wall4.physicsBody?.velocity.dx = -500
-        }
-        if wall5.position.x <= -700 && wall6.position.x <= -700{
-            wall5.position.x = 700
-            wall6.position.x = 700
             wall5.physicsBody?.velocity.dx = -500
             wall6.physicsBody?.velocity.dx = -500
+        }
+        
+        if wall1.position.x <= -63.963 && wall1.position.x >= -70 {
+            score += 10
+        }
+        if wall2.position.x <= -63.963 && wall2.position.x >= -70 {
+            score += 10
+        }
+        if wall3.position.x <= -63.963 && wall3.position.x >= -70 {
+            score += 10
+        }
+        
+        //edit wall positioning
+        if wall1.position.x <= -700 && wall2.position.x <= -700{
+            wall1.position.x = wall5.position.x + 444.667
+            wall2.position.x = wall5.position.x + 444.667
+        }
+        if wall3.position.x <= -700 && wall4.position.x <= -700{
+            wall3.position.x = wall1.position.x + 444.667
+            wall4.position.x = wall1.position.x + 444.667
+        }
+        if wall5.position.x <= -700 && wall6.position.x <= -700{
+            wall5.position.x = wall3.position.x + 444.667
+            wall6.position.x = wall3.position.x + 444.667
         }
         
     }
