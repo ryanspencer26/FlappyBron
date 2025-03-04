@@ -17,11 +17,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var wall6: SKSpriteNode!
     let cam = SKCameraNode()
     private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
-    public var vc : UIViewController!
+    public var vc : GameViewController!
     public var gameStarted = false
     public var gameOver = false
     public var score = 0
+    public var getPoints1 = true
+    public var getPoints2 = true
+    public var getPoints3 = true
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
@@ -45,6 +47,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         wall5.physicsBody?.pinned = true
         wall6.physicsBody?.pinned = true
         gameOver = true
+        vc.gameOverLabel.isHidden = false
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -59,28 +62,52 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             wall6.physicsBody?.velocity.dx = -500
         }
         
-        if wall1.position.x <= -63.963 && wall1.position.x >= -70 {
-            score += 10
+        if wall1.position.x > 600 {
+            getPoints1 = true
         }
-        if wall2.position.x <= -63.963 && wall2.position.x >= -70 {
-            score += 10
+        if wall3.position.x > 600 {
+            getPoints2 = true
         }
-        if wall3.position.x <= -63.963 && wall3.position.x >= -70 {
-            score += 10
+        if wall5.position.x > 600 {
+            getPoints3 = true
         }
+        
+        if getPoints1 && wall1.position.x < -65 {
+            score += 10
+            getPoints1 = false
+        }
+        if getPoints2 && wall3.position.x < -65 {
+            score += 10
+            getPoints2 = false
+        }
+        if getPoints3 && wall5.position.x < -65 {
+            score += 10
+            getPoints3 = false
+        }
+        
+        vc.updateScore()
         
         //edit wall positioning
         if wall1.position.x <= -700 && wall2.position.x <= -700{
-            wall1.position.x = wall5.position.x + 444.667
-            wall2.position.x = wall5.position.x + 444.667
+            wall1.position.x = wall5.position.x + 519.009
+            wall2.position.x = wall5.position.x + 519.009
+            wall1.size.height = CGFloat(Int.random(in: 215...275))
+            wall2.size.height = CGFloat(Int.random(in: 215...275))
+            wall2.position.y = -425 + wall2.size.height
         }
         if wall3.position.x <= -700 && wall4.position.x <= -700{
-            wall3.position.x = wall1.position.x + 444.667
-            wall4.position.x = wall1.position.x + 444.667
+            wall3.position.x = wall1.position.x + 519.009
+            wall4.position.x = wall1.position.x + 519.009
+            wall3.size.height = CGFloat(Int.random(in: 215...275))
+            wall4.size.height = CGFloat(Int.random(in: 215...275))
+            wall4.position.y = -425 + wall4.size.height
         }
         if wall5.position.x <= -700 && wall6.position.x <= -700{
-            wall5.position.x = wall3.position.x + 444.667
-            wall6.position.x = wall3.position.x + 444.667
+            wall5.position.x = wall3.position.x + 519.009
+            wall6.position.x = wall3.position.x + 519.009
+            wall5.size.height = CGFloat(Int.random(in: 215...275))
+            wall6.size.height = CGFloat(Int.random(in: 215...275))
+            wall6.position.y = -425 + wall6.size.height
         }
         
     }

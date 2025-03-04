@@ -17,10 +17,15 @@ class GameViewController: UIViewController {
     @IBOutlet weak var bronImage: UIImageView!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var startLabel: UILabel!
+    @IBOutlet weak var gameOverLabel: UILabel!
+    @IBOutlet weak var rankedButton: UIButton!
+    @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var leaderboardButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         startLabel.isHidden = true
+        gameOverLabel.isHidden = true
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -29,7 +34,7 @@ class GameViewController: UIViewController {
     
     @IBAction func tapRecognized(_ sender: Any) {
         
-        if titleLabel.isHidden && !play.gameStarted {
+        if !play.gameStarted {
             play.gameStarted = true
             play.userSprite.physicsBody?.affectedByGravity = true
             startLabel.text = "Score: \(play.score)"
@@ -77,6 +82,9 @@ class GameViewController: UIViewController {
         titleLabel.isHidden = true
         bronImage.isHidden = true
         startButton.isHidden = true
+        rankedButton.isHidden = true
+        infoButton.isHidden = true
+        leaderboardButton.isHidden = true
         gameStart()
         
     }
@@ -84,4 +92,11 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    func updateScore(){
+        
+        startLabel.text = "Score: \(play.score)"
+        
+    }
+    
 }
