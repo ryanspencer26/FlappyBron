@@ -7,13 +7,65 @@
 
 import Foundation
 
-struct Powerup {
+class Powerup {
     
-    var buff: Bool
-    var debuff: Bool
-    var deltaSpeed: Int
-    var deltaJump: Int
-    var inputDelay: Int
+    var buff: Int
     var position: (CGFloat, CGFloat)
+    
+    init(buff: Int, position: (CGFloat, CGFloat)) {
+        self.buff = buff
+        self.position = position
+    }
+    
+}
+
+class Curry: Powerup {
+    
+    // total spawns
+    static var spawns = 0
+    
+    static var rarity = 3
+    
+    // milliseconds of delay
+    static var inputDelay = 500
+    
+    init(position: (CGFloat, CGFloat)){
+        super.init(buff: -1, position: position)
+        Curry.spawns += 1
+    }
+    
+}
+
+class BronShoes: Powerup {
+    
+    // total spawns
+    static var spawns = 0
+    
+    static var rarity = 2
+    
+    // change in jump velocity
+    static var deltaJump = 50
+    
+    init(position: (CGFloat, CGFloat)){
+        super.init(buff: 0, position: position)
+        BronShoes.spawns += 1
+    }
+    
+}
+
+class Sunshine: Powerup {
+    
+    // total spawns
+    static var spawns = 0
+    
+    static var rarity = 5
+    
+    static var immunity = true
+    static var deltaSpeed = 50
+    
+    init(position: (CGFloat, CGFloat)){
+        super.init(buff: 1, position: position)
+        Sunshine.spawns += 1
+    }
     
 }
