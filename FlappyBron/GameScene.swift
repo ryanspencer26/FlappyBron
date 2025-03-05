@@ -15,7 +15,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var wall4: SKSpriteNode!
     var wall5: SKSpriteNode!
     var wall6: SKSpriteNode!
-    let cam = SKCameraNode()
     private var label : SKLabelNode?
     public var vc : GameViewController!
     public var gameStarted = false
@@ -24,6 +23,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     public var getPoints1 = true
     public var getPoints2 = true
     public var getPoints3 = true
+    public var screenSize: CGRect!
+    
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
@@ -35,10 +36,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         wall5 = self.childNode(withName: "wall5") as! SKSpriteNode
         wall6 = self.childNode(withName: "wall6") as! SKSpriteNode
         userSprite.texture = SKTexture(image: UIImage.bronSprite)
-        self.camera = cam
+        screenSize = UIScreen.main.bounds
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
+//        if contact.bodyA.node?.name == "wall1" && contact.bodyB.node?.name == "wall2" {
+//            print("error generating walls")
+//            return
+//        }
+//        if contact.bodyB.node?.name == "wall1" && contact.bodyA.node?.name == "wall2" {
+//            print("error generating walls")
+//            return
+//        }
         userSprite.physicsBody?.pinned = true
         wall1.physicsBody?.pinned = true
         wall2.physicsBody?.pinned = true
@@ -60,6 +69,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             wall4.physicsBody?.velocity.dx = -500
             wall5.physicsBody?.velocity.dx = -500
             wall6.physicsBody?.velocity.dx = -500
+            vc.updateScore()
         }
         
         if wall1.position.x > 600 {
@@ -85,29 +95,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             getPoints3 = false
         }
         
-        vc.updateScore()
-        
         //edit wall positioning
         if wall1.position.x <= -700 && wall2.position.x <= -700{
             wall1.position.x = wall5.position.x + 519.009
             wall2.position.x = wall5.position.x + 519.009
-            wall1.size.height = CGFloat(Int.random(in: 215...275))
-            wall2.size.height = CGFloat(Int.random(in: 215...275))
-            wall2.position.y = -425 + wall2.size.height
+            wall1.size.height = CGFloat(Int.random(in: 150...275))
+            wall2.size.height = CGFloat(275 - wall1.size.height + 150)
+            //wall2.position.y = (screenSize.height / -2) + wall2.size.height
+            wall2.position.y = -450 + wall2.size.height
         }
         if wall3.position.x <= -700 && wall4.position.x <= -700{
             wall3.position.x = wall1.position.x + 519.009
             wall4.position.x = wall1.position.x + 519.009
-            wall3.size.height = CGFloat(Int.random(in: 215...275))
-            wall4.size.height = CGFloat(Int.random(in: 215...275))
-            wall4.position.y = -425 + wall4.size.height
+            wall3.size.height = CGFloat(Int.random(in: 150...275))
+            wall4.size.height = CGFloat(275 - wall3.size.height + 150)
+            //wall4.position.y = (screenSize.height / -2) + wall4.size.height
+            wall4.position.y = -450 + wall4.size.height
         }
         if wall5.position.x <= -700 && wall6.position.x <= -700{
             wall5.position.x = wall3.position.x + 519.009
             wall6.position.x = wall3.position.x + 519.009
-            wall5.size.height = CGFloat(Int.random(in: 215...275))
-            wall6.size.height = CGFloat(Int.random(in: 215...275))
-            wall6.position.y = -425 + wall6.size.height
+            wall5.size.height = CGFloat(Int.random(in: 150...275))
+            wall6.size.height = CGFloat(275 - wall5.size.height + 150)
+            //wall6.position.y = (screenSize.height / -2) + wall6.size.height
+            wall6.position.y = -450 + wall6.size.height
         }
         
     }
