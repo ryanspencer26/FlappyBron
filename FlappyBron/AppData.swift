@@ -9,7 +9,7 @@ import Foundation
 
 class AppData{
     
-    var games = 0
+    var games = [Game]()
     var RP = 0
     
     /*

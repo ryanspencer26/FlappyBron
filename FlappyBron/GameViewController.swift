@@ -21,6 +21,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var rankedButton: UIButton!
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var leaderboardButton: UIButton!
+    var sceneSet = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,18 +35,20 @@ class GameViewController: UIViewController {
     
     @IBAction func tapRecognized(_ sender: Any) {
         
-        if !play.gameStarted {
-            play.gameStarted = true
-            play.userSprite.physicsBody?.affectedByGravity = true
-            startLabel.text = "Score: \(play.score)"
-            play.wall1.physicsBody?.velocity.dx = -500
-            play.wall2.physicsBody?.velocity.dx = -500
-            play.wall3.physicsBody?.velocity.dx = -500
-            play.wall4.physicsBody?.velocity.dx = -500
-            play.wall5.physicsBody?.velocity.dx = -500
-            play.wall6.physicsBody?.velocity.dx = -500
+        if sceneSet{
+            if !play.gameStarted {
+                play.gameStarted = true
+                play.userSprite.physicsBody?.affectedByGravity = true
+                startLabel.text = "Score: \(play.score)"
+                play.wall1.physicsBody?.velocity.dx = -500
+                play.wall2.physicsBody?.velocity.dx = -500
+                play.wall3.physicsBody?.velocity.dx = -500
+                play.wall4.physicsBody?.velocity.dx = -500
+                play.wall5.physicsBody?.velocity.dx = -500
+                play.wall6.physicsBody?.velocity.dx = -500
+            }
         }
-    
+        
         play.userSprite.physicsBody?.velocity.dy = 500
         
     }
