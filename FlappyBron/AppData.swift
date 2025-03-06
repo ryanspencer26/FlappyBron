@@ -9,8 +9,8 @@ import Foundation
 
 class AppData{
     
-    static var games = 0
-    static var RP = 0
+    var games = [Game]()
+    var RP = 0
     
     /*
      
