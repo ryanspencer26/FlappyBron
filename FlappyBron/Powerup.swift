@@ -24,10 +24,10 @@ class Curry: Powerup {
     // total spawns
     static var spawns = 0
     
-    static var rarity = 3
+    static var rarity = 4
     
     // milliseconds of delay
-    static var inputDelay = 500
+    static var inputDelay = 200
     
     init(position: (CGFloat, CGFloat)){
         super.init(buff: -1, position: position)

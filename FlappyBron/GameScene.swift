@@ -99,26 +99,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if wall1.position.x <= -700 && wall2.position.x <= -700{
             wall1.position.x = wall5.position.x + 519.009
             wall2.position.x = wall5.position.x + 519.009
-            wall1.size.height = CGFloat(Int.random(in: 150...275))
-            wall2.size.height = CGFloat(275 - wall1.size.height + 150)
-            //wall2.position.y = (screenSize.height / -2) + wall2.size.height
-            wall2.position.y = -450 + wall2.size.height
+//            wall1.size.height = CGFloat(Int.random(in: 150...275))
+//            wall2.size.height = CGFloat(275 - wall1.size.height + 150)
+//            wall2.position.y = -450 + wall2.size.height
         }
         if wall3.position.x <= -700 && wall4.position.x <= -700{
             wall3.position.x = wall1.position.x + 519.009
             wall4.position.x = wall1.position.x + 519.009
-            wall3.size.height = CGFloat(Int.random(in: 150...275))
-            wall4.size.height = CGFloat(275 - wall3.size.height + 150)
-            //wall4.position.y = (screenSize.height / -2) + wall4.size.height
-            wall4.position.y = -450 + wall4.size.height
+//            wall3.size.height = CGFloat(Int.random(in: 150...275))
+//            wall4.size.height = CGFloat(275 - wall3.size.height + 150)
+//            wall4.position.y = -450 + wall4.size.height
         }
         if wall5.position.x <= -700 && wall6.position.x <= -700{
             wall5.position.x = wall3.position.x + 519.009
             wall6.position.x = wall3.position.x + 519.009
-            wall5.size.height = CGFloat(Int.random(in: 150...275))
-            wall6.size.height = CGFloat(275 - wall5.size.height + 150)
-            //wall6.position.y = (screenSize.height / -2) + wall6.size.height
-            wall6.position.y = -450 + wall6.size.height
+//            wall5.size.height = CGFloat(Int.random(in: 150...275))
+//            wall6.size.height = CGFloat(275 - wall5.size.height + 150)
+//            wall6.position.y = -450 + wall6.size.height
         }
         
     }

@@ -9,23 +9,23 @@ import Foundation
 
 class AppData{
     
-    var games = 0
-    var RP = 0
+    static var games = 0
+    static var RP = 0
     
     /*
      
      --- FOR RANKED ---
      
      LEBRONZE   - 1,000 RP
-     LESILVER   - 2,000 RP
-     LEGOLD     - 5,000 RP
-     LEDIAMOND  - 10,500 RP
+     LESILVER   - 3,000 RP
+     LEGOLD     - 6,000 RP
+     LEDIAMOND  - 10,000 RP
      LEBRON     - 15,000 RP
      GOAT       - 25,000 RP
      
      --- RANKING ALGORITHM ---
      
-     
+     Bell Curve
      
      */
     
