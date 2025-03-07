@@ -47,9 +47,8 @@ class GameViewController: UIViewController {
                 play.wall5.physicsBody?.velocity.dx = -500
                 play.wall6.physicsBody?.velocity.dx = -500
             }
+            play.userSprite.physicsBody?.velocity.dy = 500
         }
-        
-        play.userSprite.physicsBody?.velocity.dy = 500
         
     }
     

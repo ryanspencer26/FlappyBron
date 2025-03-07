@@ -35,7 +35,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         wall4 = self.childNode(withName: "wall4") as! SKSpriteNode
         wall5 = self.childNode(withName: "wall5") as! SKSpriteNode
         wall6 = self.childNode(withName: "wall6") as! SKSpriteNode
-        userSprite.texture = SKTexture(image: UIImage.bronSprite)
         screenSize = UIScreen.main.bounds
     }
     
