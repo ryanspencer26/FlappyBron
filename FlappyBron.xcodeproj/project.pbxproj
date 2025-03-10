@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		80DE377C2D79E349009AAB99 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DE377B2D79E349009AAB99 /* Player.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		8027D3622D6CBEAF0095EC63 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -31,7 +27,6 @@
 		8027D3482D6CBEAE0095EC63 /* FlappyBron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlappyBron.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8027D3612D6CBEAF0095EC63 /* FlappyBronTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlappyBronTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8027D36B2D6CBEAF0095EC63 /* FlappyBronUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlappyBronUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		80DE377B2D79E349009AAB99 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -80,7 +75,6 @@
 		8027D33F2D6CBEAD0095EC63 = {
 			isa = PBXGroup;
 			children = (
-				80DE377B2D79E349009AAB99 /* Player.swift */,
 				8027D34A2D6CBEAE0095EC63 /* FlappyBron */,
 				8027D3642D6CBEAF0095EC63 /* FlappyBronTests */,
 				8027D36E2D6CBEAF0095EC63 /* FlappyBronUITests */,
@@ -242,7 +236,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80DE377C2D79E349009AAB99 /* Player.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

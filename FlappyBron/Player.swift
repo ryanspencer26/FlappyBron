@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Player {
+class Player : Codable{
     
     var username: String
     var highScore: Int
@@ -15,9 +15,9 @@ class Player {
     var userID: String
     var rank: Int
     
-    init(userID: String) {
-        self.userID = userID
-        username = "John Doe"
+    init(username: String) {
+        self.userID = ""
+        self.username = username
         highScore = 0
         RP = 0
         if RP >= 1000 {
@@ -35,6 +35,17 @@ class Player {
         } else {
             rank = 0
         }
+    }
+    
+    public static func save(){
+        
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(AppData.player) {
+            
+            UserDefaults.standard.set(encoded, forKey: "player")
+            
+        }
+        
     }
     
 }

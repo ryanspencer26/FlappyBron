@@ -27,6 +27,40 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         startLabel.isHidden = true
         gameOverLabel.isHidden = true
+        
+        if let saved_player = UserDefaults.standard.data(forKey: "player"){
+            
+            let decoder = JSONDecoder()
+            if let decoded = try? decoder.decode(Player.self, from: saved_player) {
+                            
+                AppData.player = decoded
+                            
+            }
+            
+        }
+        
+        if AppData.player == nil{
+            
+            let alert = UIAlertController(title: "Enter Username", message: "To Play Flappy Bron, enter a username. This is used for the global leaderboards.", preferredStyle: .alert)
+            
+            let submitAction = UIAlertAction(title: "Submit", style: .default) { (alert) in
+                
+                print("Success!")
+                
+            }
+            
+            alert.addTextField { field in
+                
+                field.placeholder = "username"
+                
+            }
+            
+            alert.addAction(submitAction)
+            
+            present(alert, animated: true, completion: nil)
+            
+        }
+        
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
