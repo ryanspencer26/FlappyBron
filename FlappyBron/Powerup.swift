@@ -41,7 +41,7 @@ class BronShoes: Powerup {
     // total spawns
     static var spawns = 0
     
-    static var rarity = 2
+    static var rarity = 1
     
     // change in jump velocity
     static var deltaJump = 50
@@ -66,6 +66,37 @@ class Sunshine: Powerup {
     init(position: (CGFloat, CGFloat)){
         super.init(buff: 1, position: position)
         Sunshine.spawns += 1
+    }
+    
+}
+
+class MediaChaos: Powerup {
+    
+    static var spawns = 0
+    
+    static var rarity = 2
+    
+    static var lights = true
+    
+    init(position: (CGFloat, CGFloat)){
+        super.init(buff: -1, position: position)
+        MediaChaos.spawns += 1
+    }
+    
+}
+
+class KingsFocus: Powerup {
+    
+    static var spawns = 0
+    
+    static var rarity = 3
+    
+    // change in wall speed
+    static var deltaSpeed = -250
+    
+    init(position: (CGFloat, CGFloat)){
+        super.init(buff: 1, position: position)
+        KingsFocus.spawns += 1
     }
     
 }
