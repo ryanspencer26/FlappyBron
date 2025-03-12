@@ -73,8 +73,7 @@ class GameViewController: UIViewController {
                     print("Player successfully initialized")
                     self.usernameLabel.text = "Signed in as: \(AppData.player!.username)"
                     
-                }
-                else{
+                } else {
                     
                     alert.title = "Invalid Entry"
                     self.present(alert, animated: true, completion: nil)
@@ -87,8 +86,7 @@ class GameViewController: UIViewController {
             
             present(alert, animated: true, completion: nil)
             
-        }
-        else{
+        } else {
             
             self.usernameLabel.text = "Signed in as: \(AppData.player!.username)"
             
@@ -155,6 +153,7 @@ class GameViewController: UIViewController {
         rankedButton.isHidden = true
         infoButton.isHidden = true
         leaderboardButton.isHidden = true
+        usernameLabel.isHidden = true
         gameStart()
         
     }

@@ -63,6 +63,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.wall4.position.x = 1152.919
             self.wall5.position.x = 1671.928
             self.wall6.position.x = 1671.928
+            self.userSprite.physicsBody?.affectedByGravity = false
+            self.userSprite.position.y = -1.225
             self.userSprite.physicsBody?.pinned = false
             self.wall1.physicsBody?.pinned = false
             self.wall2.physicsBody?.pinned = false
@@ -72,6 +74,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.wall6.physicsBody?.pinned = false
             self.gameOver = false
             self.vc.gameOverLabel.isHidden = true
+            self.vc.startLabel.isHidden = false
+            self.gameStarted = false
             
         }
         
