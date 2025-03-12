@@ -13,6 +13,7 @@ class GameViewController: UIViewController {
     
     var play: GameScene!
     
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bronImage: UIImageView!
     @IBOutlet weak var startButton: UIButton!
@@ -41,13 +42,7 @@ class GameViewController: UIViewController {
         
         if AppData.player == nil{
             
-            let alert = UIAlertController(title: "Enter Username", message: "To Play Flappy Bron, enter a username. This is used for the global leaderboards.", preferredStyle: .alert)
-            
-            let submitAction = UIAlertAction(title: "Submit", style: .default) { (alert) in
-                
-                print("Success!")
-                
-            }
+            let alert = UIAlertController(title: "Enter Username", message: "Looks like you're new to Flappy Bron! Please enter a username for us to use in the global leaderboards. Usernames must have at least 3 characters but not more than 20.", preferredStyle: .alert)
             
             alert.addTextField { field in
                 
@@ -55,9 +50,47 @@ class GameViewController: UIViewController {
                 
             }
             
+            let submitAction = UIAlertAction(title: "Submit", style: .default, handler: {_ in
+                
+                guard let fields = alert.textFields, fields.count == 1 else{
+                    
+                    print("Invalid Entries")
+                    return
+                    
+                }
+            
+                let field = fields[0]
+                let username = field.text!
+                
+                if username.count <= 20 && username.count > 2{
+                    
+                    print(username)
+                    
+                    //Initializes the player & saves with persistence
+                    
+                    AppData.player = Player(username: username)
+                    Player.save()
+                    print("Player successfully initialized")
+                    self.usernameLabel.text = "Signed in as: \(AppData.player!.username)"
+                    
+                }
+                else{
+                    
+                    alert.title = "Invalid Entry"
+                    self.present(alert, animated: true, completion: nil)
+                    
+                }
+                
+            })
+            
             alert.addAction(submitAction)
             
             present(alert, animated: true, completion: nil)
+            
+        }
+        else{
+            
+            self.usernameLabel.text = "Signed in as: \(AppData.player!.username)"
             
         }
         
