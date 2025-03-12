@@ -20,6 +20,16 @@ class Player : Codable{
         self.username = username
         highScore = 0
         RP = 0
+        rank = 0
+    }
+    
+    func addRP(RP: Int){
+        self.RP += RP
+        updateRank()
+    }
+    
+    func updateRank(){
+        
         if RP >= 1000 {
             rank = 1
         } else if RP >= 3000 {
@@ -35,6 +45,7 @@ class Player : Codable{
         } else {
             rank = 0
         }
+        
     }
     
     public static func save(){

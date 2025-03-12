@@ -39,14 +39,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-//        if contact.bodyA.node?.name == "wall1" && contact.bodyB.node?.name == "wall2" {
-//            print("error generating walls")
-//            return
-//        }
-//        if contact.bodyB.node?.name == "wall1" && contact.bodyA.node?.name == "wall2" {
-//            print("error generating walls")
-//            return
-//        }
         userSprite.physicsBody?.pinned = true
         wall1.physicsBody?.pinned = true
         wall2.physicsBody?.pinned = true
@@ -56,6 +48,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         wall6.physicsBody?.pinned = true
         gameOver = true
         vc.gameOverLabel.isHidden = false
+        
+        if score > AppData.player!.highScore {
+            AppData.player!.highScore = score
+        }
+        
+        let alert = UIAlertController(title: "Game Over", message: "Would you like to play again?", preferredStyle: .alert)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { (alert) in
+            
+            self.wall1.position.x = 633.91
+            self.wall2.position.x = 633.91
+            self.wall3.position.x = 1152.919
+            self.wall4.position.x = 1152.919
+            self.wall5.position.x = 1671.928
+            self.wall6.position.x = 1671.928
+            self.userSprite.physicsBody?.pinned = false
+            self.wall1.physicsBody?.pinned = false
+            self.wall2.physicsBody?.pinned = false
+            self.wall3.physicsBody?.pinned = false
+            self.wall4.physicsBody?.pinned = false
+            self.wall5.physicsBody?.pinned = false
+            self.wall6.physicsBody?.pinned = false
+            self.gameOver = false
+            self.vc.gameOverLabel.isHidden = true
+            
+        }
+        
+        let noAction = UIAlertAction(title: "No", style: .destructive) {(alert) in
+        
+            
+            
+        }
+        
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        
+        self.vc.present(alert, animated: true, completion: nil)
+        
     }
     
     override func update(_ currentTime: TimeInterval) {
