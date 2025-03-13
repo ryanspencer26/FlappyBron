@@ -153,7 +153,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="864.08450704225356" y="2.2900763358778624"/>
+            <point key="canvasLocation" x="845" y="453"/>
         </scene>
         <!--Information-->
         <scene sceneID="bnF-GT-bj7">
@@ -412,6 +412,8 @@
                     <connections>
                         <outlet property="RPProgressLabel" destination="Ahn-g8-bzu" id="M0y-zF-b0Z"/>
                         <outlet property="RPdescriptorLabel" destination="83R-OW-jtB" id="f6j-Hr-zOn"/>
+                        <outlet property="placementGamesLabel" destination="O48-H7-dvU" id="f7s-y7-ZGL"/>
+                        <outlet property="pleacementDescriptor" destination="I30-5K-aRd" id="jr9-e9-wbn"/>
                         <outlet property="progressView" destination="Y4O-NV-FXh" id="yax-JL-JWK"/>
                         <outlet property="rankImage" destination="3U3-T0-R3J" id="a6l-h3-3zG"/>
                         <outlet property="rankLabel" destination="Tc8-sX-OGR" id="Uha-NA-FGo"/>
@@ -519,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9r-no-hKz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1545.7746478873239" y="1249.6183206106871"/>
+            <point key="canvasLocation" x="1546" y="1349"/>
         </scene>
         <!--About Ranked-->
         <scene sceneID="gGB-5a-DdB">
@@ -544,7 +546,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diamond_icon_ranked" translatesAutoresizingMaskIntoConstraints="NO" id="C10-LB-Av9">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lediamond_icon_ranked" translatesAutoresizingMaskIntoConstraints="NO" id="C10-LB-Av9">
                                 <rect key="frame" x="391" y="225" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -647,13 +649,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="diamond_icon_ranked" width="500" height="500"/>
         <image name="goat_icon_ranked" width="500" height="500"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="lebronShoes" width="950" height="604"/>
         <image name="lebron_icon_ranked" width="500" height="500"/>
         <image name="lebronnn" width="1480" height="833"/>
         <image name="lebronze_icon_ranked" width="500" height="500"/>
+        <image name="lediamond_icon_ranked" width="500" height="500"/>
         <image name="legold_icon_ranked" width="500" height="500"/>
         <image name="lesilver_icon_ranked" width="500" height="500"/>
         <image name="list.bullet.clipboard" catalog="system" width="98" height="128"/>

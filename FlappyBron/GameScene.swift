@@ -53,6 +53,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             AppData.player!.highScore = score
         }
         
+        if AppData.player!.games.count < 10{
+            AppData.player!.games.append(Game(score: score))
+            Player.save()
+        }
+        
         let alert = UIAlertController(title: "Game Over", message: "Would you like to play again?", preferredStyle: .alert)
         
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (alert) in

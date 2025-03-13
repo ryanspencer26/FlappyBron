@@ -8,33 +8,32 @@
 import UIKit
 
 class RankedViewController: UIViewController {
-    
-    //        if RP >= 1000 {
-    //            rank = 1 BRONZE
-    //        } else if RP >= 3000 {
-    //            rank = 2 SILVER
-    //        } else if RP >= 6000 {
-    //            rank = 3 GOLD
-    //        } else if RP >= 10000 {
-    //            rank = 4 DIAMOND
-    //        } else if RP >= 15000 {
-    //            rank = 5 LEBRON
-    //        } else if RP >= 25000 {
-    //            rank = 6 GOAT
-    //        } else {
-    //            rank = 0
-    //        }
 
     @IBOutlet weak var RPdescriptorLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var RPProgressLabel: UILabel!
     @IBOutlet weak var rankImage: UIImageView!
     @IBOutlet weak var rankLabel: UILabel!
+    @IBOutlet weak var placementGamesLabel: UILabel!
+    @IBOutlet weak var pleacementDescriptor: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppData.player!.RP = 52180
+        AppData.player!.RP = 0
+        
+        if AppData.player!.games.count < 10{
+            
+            placementGamesLabel.text = "\(AppData.player!.games.count)/10"
+            
+        }
+        else{
+            
+            placementGamesLabel.text = "\(AppData.player!.RP)"
+            pleacementDescriptor.text = "CURRENT RP"
+            
+        }
+        
         
         if(AppData.player!.RP < 1000){
             
@@ -111,12 +110,12 @@ class RankedViewController: UIViewController {
             
             progressView.isHidden = true
             
-            RPProgressLabel.text = "\(AppData.player!.RP)"
+            RPProgressLabel.text = ""
             
             rankImage.image = UIImage(named: "goat_icon_ranked")
             rankLabel.text = "GOAT"
             
-            RPdescriptorLabel.text = "CURRENT RP"
+            RPdescriptorLabel.text = ""
             
         }
         
