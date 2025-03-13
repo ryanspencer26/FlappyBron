@@ -51,12 +51,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if score > AppData.player!.highScore {
             AppData.player!.highScore = score
+            Player.save()
         }
         
         let alert = UIAlertController(title: "Game Over", message: "Would you like to play again?", preferredStyle: .alert)
         
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (alert) in
             
+            self.wall1.position.x = 0.033
+            self.wall2.position.x = 0.033
+            self.wall3.position.x = 0.033
+            self.wall4.position.x = 0.033
+            self.wall5.position.x = 0.033
+            self.wall6.position.x = 0.033
             self.wall1.position.x = 633.91
             self.wall2.position.x = 633.91
             self.wall3.position.x = 1152.919
@@ -74,8 +81,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.wall6.physicsBody?.pinned = false
             self.gameOver = false
             self.vc.gameOverLabel.isHidden = true
-            self.vc.startLabel.isHidden = false
+            self.vc.startLabel.text = "Tap to Start!"
             self.gameStarted = false
+            self.score = 0
             
         }
         

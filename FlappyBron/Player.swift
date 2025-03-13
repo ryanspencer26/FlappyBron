@@ -14,6 +14,7 @@ class Player : Codable{
     var RP: Int
     var userID: String
     var rank: Int
+    var globalRank: Int
     
     init(username: String) {
         self.userID = ""
@@ -21,6 +22,7 @@ class Player : Codable{
         highScore = 0
         RP = 0
         rank = 0
+        globalRank = -1
     }
     
     func addRP(RP: Int){
@@ -30,18 +32,18 @@ class Player : Codable{
     
     func updateRank(){
         
-        if RP >= 1000 {
-            rank = 1
-        } else if RP >= 3000 {
-            rank = 2
-        } else if RP >= 6000 {
-            rank = 3
-        } else if RP >= 10000 {
-            rank = 4
+        if RP >= 2500 {
+            rank = 6
         } else if RP >= 15000 {
             rank = 5
-        } else if RP >= 25000 {
-            rank = 6
+        } else if RP >= 10000 {
+            rank = 4
+        } else if RP >= 6000 {
+            rank = 3
+        } else if RP >= 3000 {
+            rank = 2
+        } else if RP >= 1000 {
+            rank = 1
         } else {
             rank = 0
         }

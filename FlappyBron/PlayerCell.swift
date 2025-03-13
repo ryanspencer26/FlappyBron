@@ -18,4 +18,6 @@ class PlayerCell : UITableViewCell{
     
     @IBOutlet weak var RPLabel: UILabel!
     
+    @IBOutlet weak var numberLabel: UILabel!
+    
 }
