@@ -7,22 +7,20 @@
 
 import Foundation
 
-class Game{
+class Game : Codable{
     
     var score : Int
-    //var RPIncrement : Int
-    var sunshineSpawns : Int
-    var currySpawns : Int
-    var lebronsSpawns: Int
+//    var sunshineSpawns : Int
+//    var currySpawns : Int
+//    var lebronsSpawns: Int
     
-    init(score: Int, sunshineSpawns: Int, currySpawns: Int, lebronsSpawns: Int) {
+    //, sunshineSpawns: Int, currySpawns: Int, lebronsSpawns: Int -- COPY INTO INIT WHEN READY TO USE
+    
+    init(score: Int) {
         self.score = score
-        self.sunshineSpawns = sunshineSpawns
-        self.currySpawns = currySpawns
-        self.lebronsSpawns = lebronsSpawns
-        Sunshine.spawns = 0
-        Curry.spawns = 0
-        BronShoes.spawns = 0
+//        self.sunshineSpawns = sunshineSpawns
+//        self.currySpawns = currySpawns
+//        self.lebronsSpawns = lebronsSpawns
     }
     
 }

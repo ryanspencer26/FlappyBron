@@ -14,6 +14,8 @@ class Player : Codable{
     var RP: Int
     var userID: String
     var rank: Int
+    var games : [Game]
+
     var globalRank: Int
     
     init(username: String) {
@@ -22,6 +24,7 @@ class Player : Codable{
         highScore = 0
         RP = 0
         rank = 0
+        games = [Game]()
         globalRank = -1
     }
     
