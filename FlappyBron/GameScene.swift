@@ -8,6 +8,7 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    static var addtoPlacement = false
     var userSprite : SKSpriteNode!
     var wall1: SKSpriteNode!
     var wall2: SKSpriteNode!
@@ -56,7 +57,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if AppData.player!.games.count < 10 && ranked {
+        if AppData.player!.games.count < 10 && GameScene.addtoPlacement {
+            GameScene.addtoPlacement = false
             AppData.player!.games.append(Game(score: score))
+            print("Game Saved to Placement Games")
             Player.save()
         }
         
@@ -64,6 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (alert) in
             
+            GameScene.addtoPlacement = true
             self.wall1.position.x = 0.033
             self.wall2.position.x = 0.033
             self.wall3.position.x = 0.033
