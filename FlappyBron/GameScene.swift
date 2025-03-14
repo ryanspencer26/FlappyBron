@@ -56,8 +56,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             Player.save()
         }
         
-        if AppData.player!.games.count < 10 && ranked {
-        if AppData.player!.games.count < 10 && GameScene.addtoPlacement {
+        if AppData.player!.games.count < 10 && ranked && GameScene.addtoPlacement {
             GameScene.addtoPlacement = false
             AppData.player!.games.append(Game(score: score))
             print("Game Saved to Placement Games")
