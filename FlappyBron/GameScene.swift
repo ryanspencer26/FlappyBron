@@ -24,6 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     public var getPoints2 = true
     public var getPoints3 = true
     public var screenSize: CGRect!
+    public var ranked = false
     
     
     override func didMove(to view: SKView) {
@@ -54,7 +55,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             Player.save()
         }
         
-        if AppData.player!.games.count < 10{
+        if AppData.player!.games.count < 10 && ranked {
             AppData.player!.games.append(Game(score: score))
             Player.save()
         }

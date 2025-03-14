@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -349,7 +350,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unranked_icon_ranked" translatesAutoresizingMaskIntoConstraints="NO" id="3U3-T0-R3J">
-                                <rect key="frame" x="321" y="73" width="210" height="200"/>
+                                <rect key="frame" x="321" y="57" width="210" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UNRANKED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tc8-sX-OGR">
@@ -392,6 +393,19 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2IH-yw-4xv">
+                                <rect key="frame" x="396" y="218" width="60" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="play.circle" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="27"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="playRanked:" destination="tTf-gv-FGh" eventType="touchUpInside" id="41I-dt-m6k"/>
+                                    <segue destination="lIm-Dn-ERo" kind="unwind" unwindAction="unwindRanked:" id="Efc-dy-U6D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cSF-Ny-3np"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.083342438811188815" alpha="1" colorSpace="calibratedRGB"/>
@@ -420,6 +434,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSL-p5-GE1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="lIm-Dn-ERo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1545.7746478873239" y="452.67175572519085"/>
         </scene>
@@ -669,6 +684,7 @@
         <image name="legold_icon_ranked" width="500" height="500"/>
         <image name="lesilver_icon_ranked" width="500" height="500"/>
         <image name="list.bullet.clipboard" catalog="system" width="98" height="128"/>
+        <image name="play.circle" catalog="system" width="128" height="123"/>
         <image name="stephcurry" width="1040" height="760"/>
         <image name="sunshine" width="1280" height="720"/>
         <image name="unranked_icon_ranked" width="500" height="500"/>

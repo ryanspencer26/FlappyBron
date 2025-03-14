@@ -154,6 +154,7 @@ class GameViewController: UIViewController {
         infoButton.isHidden = true
         leaderboardButton.isHidden = true
         usernameLabel.isHidden = true
+        play.ranked = false
         gameStart()
         
     }
@@ -166,6 +167,12 @@ class GameViewController: UIViewController {
         
         startLabel.text = "Score: \(play.score)"
         
+    }
+    
+    @IBAction func unwindRanked(_ seg: UIStoryboardSegue){
+        print("unwind")
+        startAction(self)
+        play.ranked = true
     }
     
 }

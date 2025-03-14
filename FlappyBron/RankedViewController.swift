@@ -119,9 +119,11 @@ class RankedViewController: UIViewController {
             
         }
         
-        
     }
     
-
-
+    @IBAction func playRanked(_ sender: Any) {
+        print("queuing ranked")
+        self.dismiss(animated: true)
+    }
+    
 }
