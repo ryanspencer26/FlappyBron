@@ -11,8 +11,6 @@ class AppData{
     
     static var player : Player? = nil
     
-    
-    
     /*
      
      --- FOR RANKED ---

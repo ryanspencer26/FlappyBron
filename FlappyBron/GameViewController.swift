@@ -147,6 +147,7 @@ class GameViewController: UIViewController {
     
     @IBAction func startAction(_ sender: Any) {
         
+        GameScene.addtoPlacement = true
         titleLabel.isHidden = true
         bronImage.isHidden = true
         startButton.isHidden = true
