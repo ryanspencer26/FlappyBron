@@ -92,6 +92,8 @@ class GameViewController: UIViewController {
             
         }
         
+        print(AppData.player!.RP)
+        
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

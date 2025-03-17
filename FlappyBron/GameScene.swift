@@ -61,6 +61,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             AppData.player!.games.append(Game(score: score))
             print("Game Saved to Placement Games")
             Player.save()
+            
+            if(AppData.player!.games.count == 10){
+                
+                var initialRP = 0
+                
+                for game in AppData.player!.games{
+                    
+                    print(game.score)
+                    initialRP += game.score
+                    
+                }
+                initialRP /= 10
+                
+                if initialRP > 500{
+                    
+                    initialRP = 500
+                    
+                }
+                AppData.player!.RP += initialRP
+                
+            }
+            
         }
         
         let alert = UIAlertController(title: "Game Over", message: "Would you like to play again?", preferredStyle: .alert)

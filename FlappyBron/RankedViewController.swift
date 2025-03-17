@@ -20,8 +20,6 @@ class RankedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppData.player!.RP = 0
-        
         if AppData.player!.games.count < 10{
             
             placementGamesLabel.text = "\(AppData.player!.games.count)/10"
