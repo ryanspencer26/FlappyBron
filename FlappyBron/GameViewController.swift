@@ -92,6 +92,8 @@ class GameViewController: UIViewController {
             
         }
         
+        print(AppData.player!.RP)
+        
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -142,6 +144,7 @@ class GameViewController: UIViewController {
         
         sceneSet = true
         startLabel.isHidden = false
+        play.ranked = false
         
     }
     
@@ -155,7 +158,6 @@ class GameViewController: UIViewController {
         infoButton.isHidden = true
         leaderboardButton.isHidden = true
         usernameLabel.isHidden = true
-        play.ranked = false
         gameStart()
         
     }

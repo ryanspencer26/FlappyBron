@@ -35,7 +35,7 @@ class Player : Codable{
     
     func updateRank(){
         
-        if RP >= 2500 {
+        if RP >= 25000 {
             rank = 6
         } else if RP >= 15000 {
             rank = 5
