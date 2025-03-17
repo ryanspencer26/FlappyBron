@@ -142,6 +142,7 @@ class GameViewController: UIViewController {
         
         sceneSet = true
         startLabel.isHidden = false
+        play.ranked = false
         
     }
     
@@ -155,7 +156,6 @@ class GameViewController: UIViewController {
         infoButton.isHidden = true
         leaderboardButton.isHidden = true
         usernameLabel.isHidden = true
-        play.ranked = false
         gameStart()
         
     }
@@ -167,6 +167,23 @@ class GameViewController: UIViewController {
     func updateScore(){
         
         startLabel.text = "Score: \(play.score)"
+        
+    }
+    
+    func gameOver(){
+        
+        sceneSet = false
+        play.isHidden = true
+        gameOverLabel.isHidden = true
+        titleLabel.isHidden = false
+        bronImage.isHidden = false
+        startButton.isHidden = false
+        rankedButton.isHidden = false
+        infoButton.isHidden = false
+        leaderboardButton.isHidden = false
+        usernameLabel.isHidden = false
+        startLabel.isHidden = true
+        startLabel.text = "Tap to Start!"
         
     }
     

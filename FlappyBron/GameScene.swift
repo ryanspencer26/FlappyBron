@@ -26,7 +26,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     public var getPoints3 = true
     public var screenSize: CGRect!
     public var ranked = false
-    
+    public var powerupSpawned = false
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
@@ -99,7 +99,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let noAction = UIAlertAction(title: "No", style: .destructive) {(alert) in
         
-            
+            self.vc.gameOver()
+            self.wall1.position.x = 0.033
+            self.wall2.position.x = 0.033
+            self.wall3.position.x = 0.033
+            self.wall4.position.x = 0.033
+            self.wall5.position.x = 0.033
+            self.wall6.position.x = 0.033
+            self.wall1.position.x = 633.91
+            self.wall2.position.x = 633.91
+            self.wall3.position.x = 1152.919
+            self.wall4.position.x = 1152.919
+            self.wall5.position.x = 1671.928
+            self.wall6.position.x = 1671.928
+            self.userSprite.physicsBody?.affectedByGravity = false
+            self.userSprite.position.y = -1.225
+            self.userSprite.physicsBody?.pinned = false
+            self.wall1.physicsBody?.pinned = false
+            self.wall2.physicsBody?.pinned = false
+            self.wall3.physicsBody?.pinned = false
+            self.wall4.physicsBody?.pinned = false
+            self.wall5.physicsBody?.pinned = false
+            self.wall6.physicsBody?.pinned = false
+            self.gameOver = false
+            self.gameStarted = false
+            self.score = 0
             
         }
         
@@ -112,6 +136,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        
+        if Int.random(in: 1...10) == 1 && !powerupSpawned {
+            powerupSpawned = true
+            // spawn a powerup based on rarity
+        }
         
         if gameStarted {
             wall1.physicsBody?.velocity.dx = -500

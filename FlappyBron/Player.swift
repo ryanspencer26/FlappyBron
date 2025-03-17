@@ -15,8 +15,8 @@ class Player : Codable{
     var userID: String
     var rank: Int
     var games : [Game]
-
-    var globalRank: Int
+    var scoreRank: Int
+    var rpRank: Int
     
     init(username: String) {
         self.userID = ""
@@ -25,7 +25,8 @@ class Player : Codable{
         RP = 0
         rank = 0
         games = [Game]()
-        globalRank = -1
+        scoreRank = 0
+        rpRank = 0
     }
     
     func addRP(RP: Int){

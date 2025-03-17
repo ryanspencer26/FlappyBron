@@ -475,7 +475,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwC-GW-ywU">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BwC-GW-ywU">
                                                             <rect key="frame" x="243.66666666666663" y="0.0" width="183.33333333333337" height="75.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -538,9 +538,13 @@
                                 <segment title="Ranked Points"/>
                                 <segment title="High Score"/>
                             </segments>
+                            <connections>
+                                <action selector="segmentChanged:" destination="Xjf-fw-Lqi" eventType="valueChanged" id="6eZ-1Y-BEW"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="segmentControl" destination="hah-WP-1vB" id="SgK-Xz-tjZ"/>
                         <outlet property="tableView" destination="a33-2B-ACC" id="u7V-M5-PiP"/>
                     </connections>
                 </viewController>
