@@ -158,11 +158,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        
-        if Int.random(in: 1...10) == 1 && !powerupSpawned {
-            powerupSpawned = true
-            // spawn a powerup based on rarity
-        }
+
+        // cant do this in update function without some sort of timer
+//        if Int.random(in: 1...10) == 1 && !powerupSpawned {
+//            powerupSpawned = true
+//            // spawn a powerup based on rarity
+//            var ranSpawn = Int.random(in: 1...15)
+//            if ranSpawn == 15 {
+//                //spawn sunshine
+//                print("sunshine")
+//            } else if ranSpawn > 12 && ranSpawn < 15 {
+//                //spawn curry
+//                print("curry")
+//            } else if ranSpawn > 9 && ranSpawn < 13 {
+//                //spawn kings focus
+//                print("kings focus")
+//            } else if ranSpawn > 5 && ranSpawn < 10 {
+//                //spawn media chaos
+//                print("media chaos")
+//            } else {
+//                //spawn bronShoes
+//                print("bron shoes")
+//            }
+//        }
         
         if gameStarted {
             wall1.physicsBody?.velocity.dx = -500
