@@ -92,7 +92,7 @@ class GameViewController: UIViewController {
             
         }
         
-        print(AppData.player!.RP)
+        //print(AppData.player!.RP)
         
     }
 
